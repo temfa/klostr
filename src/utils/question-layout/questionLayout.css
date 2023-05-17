@@ -1,0 +1,41 @@
+.question-layout {
+  width: 58%;
+  margin: 100px auto;
+}
+
+.question-layout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.question-layout-header > p:first-child {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #5a49a7;
+  cursor: pointer;
+}
+
+.question-layout-header > p:last-child {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #aaaaaa;
+}
+
+.question-layout > .question {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  margin-bottom: 45px;
+  color: #ff914d;
+}

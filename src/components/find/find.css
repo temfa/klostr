@@ -1,0 +1,64 @@
+.find-container {
+  width: 100%;
+  background-color: #fafafa;
+  padding-top: 57px;
+}
+
+.find-wrapper {
+  background-color: #ffffff;
+}
+
+.find-wrapper > h2 {
+  color: #364169;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: "Barlow";
+}
+
+.find-wrapper p {
+  color: #3b3b3b;
+  font-size: 14px;
+  font-weight: 400px;
+  font-family: "League Spartan";
+  margin-top: 8px;
+}
+
+.find-cont {
+  margin-top: 41px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.find-single {
+  width: 32%;
+}
+
+.find-single div {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #3a4d8f;
+  margin-bottom: 10px;
+}
+
+.find-single h2 {
+  color: #091747;
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.find-single p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #3b3b3b;
+}
+
+.find-single > img {
+  width: 100%;
+}

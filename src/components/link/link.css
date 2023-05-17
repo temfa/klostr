@@ -1,0 +1,76 @@
+.link-container {
+  width: 100%;
+}
+
+.link-container > p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #5a49a7;
+}
+
+.link-action {
+  width: 447px;
+  margin: 83px auto 0px;
+}
+
+.link-action input {
+  width: 100%;
+  padding: 22px 50px;
+  background: #fcf9f9;
+  border-radius: 12px;
+  border: 0px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
+  color: #818183;
+  box-sizing: border-box;
+}
+
+.link-action input:focus {
+  outline: none;
+}
+
+.link-action h3 {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #5a49a7;
+  margin-top: 16px;
+}
+
+.link-action p {
+  font-family: "Inter";
+  margin-top: 77px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  color: #5a49a7;
+  text-align: center;
+}
+
+.link-button {
+  width: 137px;
+  margin: 10px auto 0px;
+}
+
+.link-button button {
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  background: #5a49a7;
+  border-radius: 8px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: white;
+  padding: 10px 0px;
+}

@@ -1,0 +1,35 @@
+.questions-container {
+  padding: 32px;
+}
+
+.questions-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.questions-cont h2 {
+  color: #091747;
+  font-family: "Barlow", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.questions-cont h2 span {
+  font-weight: bold;
+}
+
+.questions-cont button {
+  border: none;
+  background-color: #ff914d;
+  color: white;
+  padding: 20px 0px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  width: 205px;
+}

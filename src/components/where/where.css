@@ -1,0 +1,39 @@
+.where-container {
+  width: 293px;
+  margin: 0px auto;
+}
+
+.where-container input {
+  width: 100%;
+  padding: 22px 50px;
+  background: #fcf9f9;
+  border-radius: 12px;
+  border: 0px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
+  color: #818183;
+  box-sizing: border-box;
+}
+
+.where-container input:focus {
+  outline: none;
+}
+
+.where-container button {
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  background: #5a49a7;
+  border-radius: 8px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: white;
+  padding: 10px 0px;
+  margin-top: 40px;
+}

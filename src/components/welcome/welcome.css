@@ -1,0 +1,46 @@
+.welcome-container {
+  margin-top: 28px;
+}
+
+.welcome-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome-text {
+  width: 50%;
+}
+
+.welcome-img {
+  width: 520px;
+}
+
+.welcome-text h2 {
+  color: #364169;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+}
+
+.welcome-text h3 {
+  margin: 32px 0px 16px;
+  font-size: 22px;
+  width: 50%;
+  font-weight: 500;
+  color: #091747;
+  font-family: "Barlow", sans-serif;
+}
+
+.welcome-text p {
+  font-size: 14px;
+  color: #3b3b3b;
+  font-weight: 400;
+  width: 50%;
+  margin-bottom: 16px;
+  font-family: "League Spartan", sans-serif;
+}
+
+.welcome-img img {
+  width: 100%;
+}

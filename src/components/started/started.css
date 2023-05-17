@@ -1,0 +1,27 @@
+.get-started-container {
+  width: 100%;
+}
+
+.get-started-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #5a49a7;
+}
+
+.get-started-action {
+  display: flex;
+  margin: 20px;
+}
+
+.get-started-action p {
+  margin-right: 40px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  cursor: pointer;
+}

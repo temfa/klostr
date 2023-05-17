@@ -1,0 +1,23 @@
+import React from "react";
+import "./budget.css";
+import QuestionLayout from "../../utils/question-layout/questionLayout";
+
+const Budget = ({ backAction, count, action }) => {
+  return (
+    <QuestionLayout question="What is your budget?" action={backAction} count={count} no="3">
+      <div className="budget-container">
+        <div className="budget-start">
+          <p>NGN0</p>
+        </div>
+        <div className="budget-end">
+          <p>NGN25,000,000</p>
+        </div>
+      </div>
+      <button onClick={action} className="budget-button">
+        Set Budget
+      </button>
+    </QuestionLayout>
+  );
+};
+
+export default Budget;

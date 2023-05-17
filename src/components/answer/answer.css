@@ -1,0 +1,29 @@
+.answers {
+  width: 293px;
+  background: #f6f6f6;
+  border-radius: 12px;
+  margin: 0px auto 30px;
+  padding: 15px 0px;
+  cursor: pointer;
+  transition: 2s all ease;
+}
+
+.answers p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #5a49a7;
+  width: 86%;
+  margin: 0px auto;
+}
+
+.answers:hover {
+  background: #5a49a7;
+  transition: 2s all ease;
+}
+
+.answers:hover p {
+  color: white;
+}

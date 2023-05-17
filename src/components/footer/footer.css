@@ -1,0 +1,36 @@
+.footer-container {
+  width: 100%;
+  background-color: #040b24;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-cont {
+  display: flex;
+}
+
+.footer-links {
+  margin-right: 50px;
+}
+
+.footer-links a {
+  display: block;
+  text-decoration: none;
+  color: #ff914d;
+  font-family: "Barlow";
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.footer-logo {
+  width: 200px;
+}
+
+.footer-logo img {
+  width: 100%;
+}
