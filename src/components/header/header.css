@@ -58,6 +58,7 @@
   .nav-links a {
     margin-left: 10px;
     font-size: 12px;
+    padding: 10px 0px;
   }
 
   .nav-links .nav-button {
