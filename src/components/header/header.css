@@ -47,6 +47,10 @@
 }
 
 @media screen and (max-width: 600px) {
+  .header-wrapper {
+    width: 90%;
+  }
+
   .header-logo {
     width: 80px;
   }
@@ -60,6 +64,6 @@
   }
 
   .nav-button button {
-    padding: 20px 10px;
+    padding: 10px;
   }
 }

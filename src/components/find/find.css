@@ -71,4 +71,8 @@
   .find-single {
     width: 100%;
   }
+
+  .find-wrapper > h2 {
+    font-size: 24px;
+  }
 }

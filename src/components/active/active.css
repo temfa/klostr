@@ -42,3 +42,15 @@
   font-weight: 800;
   font-family: "Barlow", sans-serif;
 }
+
+@media screen and (max-width: 600px) {
+  .active-container h2 {
+    left: 20px;
+    font-weight: 24px;
+  }
+
+  .active-container h1 {
+    left: 20px;
+    font-weight: 35px;
+  }
+}
