@@ -33,3 +33,18 @@
   font-size: 14px;
   width: 205px;
 }
+
+@media screen and (max-width: 600px) {
+  .questions-container {
+    padding: 32px 0px 16px;
+  }
+
+  .questions-cont {
+    flex-direction: column;
+  }
+
+  .questions-cont button {
+    width: 100%;
+    margin-top: 15px;
+  }
+}

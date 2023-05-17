@@ -44,3 +44,20 @@
 .welcome-img img {
   width: 100%;
 }
+
+@media screen and (max-width: 600px) {
+  .welcome-wrapper {
+    flex-direction: column;
+  }
+
+  .welcome-text,
+  .welcome-text h3,
+  .welcome-text p,
+  .welcome-img {
+    width: 100%;
+  }
+
+  .welcome-text h3 {
+    margin-bottom: 6px;
+  }
+}

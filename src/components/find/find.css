@@ -62,3 +62,13 @@
 .find-single > img {
   width: 100%;
 }
+
+@media screen and (max-width: 600px) {
+  .find-cont {
+    flex-direction: column;
+  }
+
+  .find-single {
+    width: 100%;
+  }
+}
