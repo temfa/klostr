@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import "./started.css";
-import Current from "../current/current";
-import Bedrooms from "../bedrooms/bedrooms";
 import Budget from "../budget/budget";
-import Link from "../link/link";
 import Logo from "../../assets/logo-white.png";
 import Where from "../where/where";
 import Alerts from "../alerts/alerts";
@@ -123,18 +120,14 @@ const Started = () => {
     switch (data[count].alert) {
       case true:
         return <Alerts type={data[count].multiStep} img={data[count].img} question={data[count].questions} action={add} />;
-        break;
       case false:
         switch (data[count].questions) {
           case "Show us a place you have in mind":
             return <Where action={add} type={data[count].multiStep} />;
-            break;
           case "What is your budget?":
             return <Budget action={add} type={data[count].multiStep} count={data[count].current} no={data[count].total} />;
-            break;
           case "Personal Information":
             return <Personal action={add} type={data[count].multiStep} count={data[count].current} no={data[count].total} />;
-            break;
           default:
             return (
               <QuestionLayout question={data[count].questions} type={data[count].multiStep} count={data[count].current} no={data[count].total}>
@@ -143,10 +136,8 @@ const Started = () => {
                 })}
               </QuestionLayout>
             );
-            break;
         }
 
-        break;
       default:
         return (
           <QuestionLayout question={data[count].questions} type={data[count].multiStep} count={data[count].current} no={data[count].total}>
@@ -155,7 +146,6 @@ const Started = () => {
             })}
           </QuestionLayout>
         );
-        break;
     }
   };
   return (
