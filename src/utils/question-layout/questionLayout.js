@@ -6,7 +6,7 @@ const QuestionLayout = ({ children, count, question, no, action, type }) => {
     <div className="question-layout">
       <div className="question-layout-header">
         <p onClick={action}>Back</p>
-        {type === "alert" ? null : (
+        {type === false ? null : (
           <p>
             {count} of {no}
           </p>

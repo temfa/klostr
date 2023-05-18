@@ -1,0 +1,111 @@
+.form-container {
+  width: 82%;
+}
+
+.form-group,
+.form-groups div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.form-container input {
+  background: #fcf9f9;
+  border-radius: 12px;
+  padding: 22px 30px;
+  box-sizing: border-box;
+  border: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
+  color: #818183;
+}
+
+.form-container select {
+  padding: 22px 0px 22px 30px;
+  border: none;
+  background: #fcf9f9;
+  border-radius: 12px;
+  box-sizing: border-box;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
+  color: #818183;
+}
+
+.form-container input:focus {
+  outline: none;
+}
+
+.form-group {
+  margin-bottom: 60px;
+}
+
+.form-group input,
+.form-group div {
+  width: 45%;
+}
+
+.form-single {
+  margin-bottom: 50px;
+}
+
+.form-single input {
+  width: 100%;
+}
+
+.form-groups .form-select {
+  width: 19%;
+}
+
+.form-groups .tel {
+  width: 52%;
+}
+
+.form-groups .sex {
+  width: 24%;
+}
+
+.form-groups p,
+.form-group div p {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  width: 273px;
+  margin-top: 2px;
+  margin-bottom: 18px;
+  color: #5a49a7;
+}
+
+@media screen and (max-width: 600px) {
+  .form-group,
+  .form-groups div {
+    flex-direction: column;
+  }
+
+  .form-groups .form-select,
+  .form-container,
+  .form-groups .tel,
+  .form-groups .sex,
+  .form-group input,
+  .form-group div {
+    width: 100%;
+  }
+
+  .form-single,
+  .form-group {
+    margin-bottom: 0px;
+  }
+
+  .form-group input,
+  .form-single {
+    margin-bottom: 22px;
+  }
+}

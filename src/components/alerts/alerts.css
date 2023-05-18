@@ -2,3 +2,27 @@
   display: block;
   margin: 0px auto;
 }
+
+.alert-button {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: white;
+  background: #5a49a7;
+  border-radius: 8px;
+  border: none;
+  width: 200px;
+  margin: 80px auto;
+  display: block;
+  cursor: pointer;
+  padding: 10px 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .alert-img,
+  .alert-button {
+    width: 100%;
+  }
+}
