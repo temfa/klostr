@@ -9,6 +9,7 @@ const Link = ({ action, type, question, backAction }) => {
 
   const handlePlaceChanged = () => {
     const [place] = inputref.current.getPlaces();
+    console.log(place);
   };
   // console.log(inputref.current.value);
 
