@@ -1,0 +1,26 @@
+.first-container {
+  width: 29%;
+  margin: 100px auto;
+  max-width: 375px;
+}
+
+.first-container img {
+  display: block;
+  margin: 0px auto;
+}
+
+.first-container h2 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  margin: 36px auto 45px;
+  color: #ff914d;
+}
+
+@media screen and (max-width: 600pc) {
+  .first-container {
+    width: 100%;
+  }
+}

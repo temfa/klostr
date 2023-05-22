@@ -1,10 +1,11 @@
 import React from "react";
 import "./personal.css";
 import QuestionLayout from "../../utils/question-layout/questionLayout";
+import FormButton from "../form-button/formButton";
 
-const Personal = ({ question, type, count, no, action }) => {
+const Personal = ({ question, type, count, no, action, backAction }) => {
   return (
-    <QuestionLayout question={question} type={type} count={count} no={no}>
+    <QuestionLayout question={question} type={type} count={count} no={no} action={backAction}>
       <div className="form-container">
         <div className="form-group">
           <input type="text" placeholder="First Name" />
@@ -39,6 +40,7 @@ const Personal = ({ question, type, count, no, action }) => {
             <p>Match me with only similar people</p>
           </div>
         </div>
+        <FormButton action={action} text="Next" />
       </div>
     </QuestionLayout>
   );

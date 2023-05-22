@@ -1,8 +1,4 @@
-.link-container {
-  width: 100%;
-}
-
-.link-container > p {
+.social-container > p {
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
@@ -11,52 +7,58 @@
   color: #5a49a7;
 }
 
-.link-action {
-  width: 447px;
-  margin: 83px auto 0px;
+.connect-link {
+  display: flex;
+  width: 53%;
+  margin: 90px auto 5px;
+  background: #fcf9f9;
+  border-radius: 40px;
+  padding: 22px 0px;
+  align-items: center;
+  justify-content: center;
 }
 
-.link-action input {
-  width: 100%;
-  padding: 22px 50px;
-  background: #fcf9f9;
-  border-radius: 12px;
-  border: 0px;
+.connect-link p {
   font-family: "Inter";
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
   line-height: 22px;
-  color: #818183;
-  box-sizing: border-box;
+  margin-right: 20px;
+  color: #313131;
 }
 
-.link-action input:focus {
-  outline: none;
+.quick-tips {
+  display: flex;
+  width: 46%;
+  margin: 0px auto;
+  align-items: center;
 }
 
-.link-action h3 {
+.quick-tips p {
   font-family: "Inter";
   font-style: italic;
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
+  margin-left: 6px;
   color: #5a49a7;
-  margin-top: 16px;
 }
 
-.link-action p {
+.social-container h3 {
   font-family: "Inter";
-  margin: 77px 0px 10px;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
-  color: #5a49a7;
+  line-height: 16px;
   text-align: center;
+  margin: 94px 0px 10px;
+  color: #5a49a7;
 }
 
 @media screen and (max-width: 600px) {
-  .link-action {
+  .connect-link,
+  .quick-tips {
     width: 100%;
   }
 }

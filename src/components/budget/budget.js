@@ -1,6 +1,7 @@
 import React from "react";
 import "./budget.css";
 import QuestionLayout from "../../utils/question-layout/questionLayout";
+import FormButton from "../form-button/formButton";
 
 const Budget = ({ backAction, count, action, no, type }) => {
   return (
@@ -13,9 +14,7 @@ const Budget = ({ backAction, count, action, no, type }) => {
           <p>NGN25,000,000</p>
         </div>
       </div>
-      <button onClick={action} className="budget-button">
-        Set Budget
-      </button>
+      <FormButton text="Set Budget" action={action} />
     </QuestionLayout>
   );
 };
