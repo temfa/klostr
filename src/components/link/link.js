@@ -40,7 +40,7 @@ const Link = ({ action, type, question, backAction }) => {
           How it works: <br /> Post the link to a listing from ANY website, and we will find the best person for you to split the rent & bills with!
         </p>
         <div className="link-action">
-          <LoadScript googleMapsApiKey="AIzaSyBrH4lUUhgxxOBroz3InzmJuU2ObE5WRQ4" libraries={["places"]}>
+          <LoadScript googleMapsApiKey="AIzaSyBJAsJYls1i4VFztfFAIU6RSTDHVoaPtEI" libraries={["places"]}>
             <StandaloneSearchBox onLoad={(ref) => (inputref.current = ref)} onPlacesChanged={handlePlaceChanged}>
               <input type="text" placeholder="http://... (paste your link here)" />
             </StandaloneSearchBox>
