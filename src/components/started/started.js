@@ -1,133 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./started.css";
 import Budget from "../budget/budget";
 import Logo from "../../assets/logo-white.svg";
 import Alerts from "../alerts/alerts";
 import Where from "../where/where";
-import Alert from "../../assets/super.png";
 import QuestionLayout from "../../utils/question-layout/questionLayout";
 import Answer from "../answer/answer";
 import Personal from "../personal/personal";
 import { useNavigate } from "react-router";
 import Link from "../link/link";
-import First from "../first/first";
 import Socials from "../socials/socials";
+import { Data } from "../../utils/data";
+import axios from "axios";
+// import Loader from "../loader/loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Started = () => {
-  const data = [
-    {
-      questions: "We’re excited to help you! Now tell us what you’re looking for",
-      multiStep: false,
-      alert: true,
-    },
-    {
-      questions: "Personal Information",
-      multiStep: true,
-      alert: false,
-      current: 1,
-      total: 2,
-    },
-    {
-      questions: "What is your current situation?",
-      answer: ["I already have a place, just looking for a flatmate", "I need both a home and a flatmate", "I’m only looking for only a home"],
-      multiStep: false,
-      alert: false,
-    },
-    {
-      questions: "Show us a place you have in mind",
-      multiStep: false,
-      alert: false,
-    },
-    {
-      questions: "Where do you want to live?",
-      multiStep: true,
-      current: 1,
-      total: 3,
-      alert: false,
-    },
-    {
-      questions: "How many bedrooms?",
-      answer: ["1 bedroom", "2 bedroom", "3 bedroom", "+ 3 bedroom"],
-      multiStep: true,
-      current: 2,
-      total: 3,
-      alert: false,
-    },
-    {
-      questions: "What is your budget?",
-      multiStep: true,
-      current: 3,
-      total: 3,
-      alert: false,
-    },
-    {
-      questions: "Super! Now help us figure out the type of person you’d like to live with",
-      multiStep: false,
-      alert: true,
-      img: Alert,
-    },
-    {
-      questions: "Who can you live with?",
-      answer: ["Male only", "Female only", "Both male and female"],
-      multiStep: true,
-      current: 1,
-      total: 5,
-      alert: false,
-    },
-    {
-      questions: "What’s your opinion on chores?",
-      answer: ["Let’s hire someone to clean", "We can clean on the weekends", "Clean up immediately!"],
-      multiStep: true,
-      current: 2,
-      total: 5,
-      alert: false,
-    },
-    {
-      questions: "Can you live with pets?",
-      answer: ["Dogs only", "Cats only", "All animals welcome", "Heck no!!!"],
-      multiStep: true,
-      current: 3,
-      total: 5,
-      alert: false,
-    },
-    {
-      questions: "How often can we have friends/family over?",
-      answer: ["Weekends are fine", "Everyday", "Never. That’s what bars are for"],
-      multiStep: true,
-      current: 4,
-      total: 5,
-      alert: false,
-    },
-    {
-      questions: "How do we split the bills?",
-      answer: ["You take care of some things, I take care of others", "We split every bill halfway"],
-      multiStep: true,
-      current: 5,
-      total: 5,
-      alert: false,
-    },
-    {
-      questions: "Fantastic! We’ve got what we need Now to the final, most important details.",
-      multiStep: false,
-      alert: true,
-      img: Alert,
-    },
-    {
-      questions: "Connect a social account",
-      multiStep: true,
-      alert: false,
-      current: 2,
-      total: 2,
-    },
-    {
-      questions: "The magic has begun! Now we’ll find your dream home",
-      multiStep: false,
-      alert: true,
-      img: Alert,
-    },
-  ];
   const navigate = useNavigate();
   const [count, setCount] = useState(0);
+  const [level2, setlevel2] = useState(false);
+  const [level3, setlevel3] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  let token;
+  let tokenData;
+  if (typeof window !== "undefined") {
+    token = window.localStorage.getItem("token");
+    if (token !== "undefined") {
+      tokenData = token;
+    }
+  }
   const add = () => {
     setCount(count + 1);
   };
@@ -135,30 +37,84 @@ const Started = () => {
     setCount(count - 1);
   };
   const loadForm = () => {
-    switch (data[count].alert) {
+    switch (Data[count].alert) {
       case true:
-        return count === 0 ? (
-          <First action={add} />
-        ) : (
-          <Alerts type={data[count].multiStep} img={data[count].img} question={data[count].questions} action={add} backaction={remove} />
-        );
+        return <Alerts type={Data[count].multiStep} img={Data[count].img} question={Data[count].questions} action={add} backaction={remove} level2={level2} level3={level3} />;
       case false:
-        switch (data[count].questions) {
+        switch (Data[count].questions) {
           case "Show us a place you have in mind":
-            return <Link action={add} type={data[count].multiStep} question={data[count].questions} backAction={remove} />;
+            return (
+              <Link
+                action={add}
+                type={Data[count].multiStep}
+                question={Data[count].questions}
+                backAction={remove}
+                count={Data[count].current}
+                no={Data[count].total}
+                level2={level2}
+              />
+            );
           case "Where do you want to live?":
-            return <Where action={add} type={data[count].multiStep} question={data[count].questions} count={data[count].current} no={data[count].total} backAction={remove} />;
+            return (
+              <Where
+                action={add}
+                type={Data[count].multiStep}
+                question={Data[count].questions}
+                count={Data[count].current}
+                no={Data[count].total}
+                backAction={remove}
+                level2={level2}
+              />
+            );
           case "What is your budget?":
-            return <Budget action={add} type={data[count].multiStep} count={data[count].current} no={data[count].total} backAction={remove} />;
+            return <Budget action={add} type={Data[count].multiStep} count={Data[count].current} no={Data[count].total} backAction={remove} level2={level2} />;
           case "Personal Information":
-            return <Personal action={add} type={data[count].multiStep} count={data[count].current} no={data[count].total} backAction={remove} />;
+            return <Personal action={add} type={Data[count].multiStep} count={Data[count].current} no={Data[count].total} backAction={remove} />;
           case "Connect a social account":
-            return <Socials action={add} type={data[count].multiStep} count={data[count].current} no={data[count].total} backAction={remove} question={data[count].questions} />;
+            return <Socials action={add} type={Data[count].multiStep} count={Data[count].current} no={Data[count].total} backAction={remove} question={Data[count].questions} />;
           default:
             return (
-              <QuestionLayout question={data[count].questions} type={data[count].multiStep} count={data[count].current} no={data[count].total} action={remove}>
-                {data[count].answer?.map((item, index) => {
-                  return <Answer answer={item} key={index} action={add} />;
+              <QuestionLayout
+                question={Data[count].questions}
+                type={Data[count].multiStep}
+                count={Data[count].current}
+                no={Data[count].total}
+                action={remove}
+                level2={level2}
+                level3={level3}>
+                {Data[count].answer?.map((item, index) => {
+                  return (
+                    <Answer
+                      answer={item}
+                      key={index}
+                      action={async (e) => {
+                        if (Data[count].questions === "How many bedrooms?") {
+                          const config = {
+                            headers: {
+                              "Content-Type": "application/json",
+                              Authorization: `Bearer ${tokenData}`,
+                            },
+                          };
+                          const url = "https://dev.api.klostr.com/user/update-user-preference";
+                          const data = {
+                            key: "apartment_type",
+                            value: e.target.outerText === "+ three bedroom" ? "three_plus_bedroom" : e.target.outerText.replace(" ", "_").toLowerCase(),
+                          };
+                          try {
+                            await axios.patch(url, data, config).then((response) => {
+                              if (response.data.status === 200) {
+                                add();
+                              }
+                            });
+                          } catch (error) {
+                            toast.error(error.response.data.message);
+                          }
+                        } else {
+                          add();
+                        }
+                      }}
+                    />
+                  );
                 })}
               </QuestionLayout>
             );
@@ -166,16 +122,30 @@ const Started = () => {
 
       default:
         return (
-          <QuestionLayout question={data[count].questions} type={data[count].multiStep} count={data[count].current} no={data[count].total}>
-            {data[count].answer?.map((item, index) => {
+          <QuestionLayout question={Data[count].questions} type={Data[count].multiStep} count={Data[count].current} no={Data[count].total} level2={level2} level3={level3}>
+            {Data[count].answer?.map((item, index) => {
               return <Answer answer={item} key={index} action={add} />;
             })}
           </QuestionLayout>
         );
     }
   };
+
+  useEffect(() => {
+    if (count >= 5) {
+      setlevel2(true);
+    } else {
+      setlevel2(false);
+    }
+    if (count >= 10) {
+      setlevel3(true);
+    } else {
+      setlevel3(false);
+    }
+  }, [count]);
   return (
     <>
+      <ToastContainer />
       <div className="get-started-header">
         <div className="get-started-logo">
           <img src={Logo} alt="logo" />

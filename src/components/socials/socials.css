@@ -1,5 +1,5 @@
 .social-container > p {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -19,7 +19,7 @@
 }
 
 .connect-link p {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
@@ -36,7 +36,7 @@
 }
 
 .quick-tips p {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: italic;
   font-weight: 400;
   font-size: 13px;
@@ -46,7 +46,7 @@
 }
 
 .social-container h3 {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 13px;

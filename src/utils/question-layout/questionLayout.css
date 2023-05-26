@@ -1,6 +1,57 @@
 .question-layout {
-  width: 58%;
-  margin: 100px auto;
+  width: 49%;
+  max-width: 738px;
+  margin: 60px auto;
+}
+
+.indicator {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+
+.indicator-one {
+  display: flex;
+  align-items: center;
+}
+
+.indicator-one div {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #aaadb5;
+}
+
+.indicator-active {
+  background: #5a49a7 !important;
+}
+
+.indicator-one div p {
+  margin: 0px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  color: #ffffff;
+}
+
+.indicator-one h2 {
+  font-family: "Inter", sans-serif;
+  margin-left: 8px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #aaadb5;
+}
+
+.text-active {
+  color: #5a49a7 !important;
 }
 
 .question-layout-header {
@@ -8,11 +59,11 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 46px;
 }
 
 .question-layout-header > p:first-child {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -22,7 +73,7 @@
 }
 
 .question-layout-header > p:last-child {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -30,8 +81,18 @@
   color: #aaaaaa;
 }
 
+.next-button {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700 !important;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+  color: #ff914d !important;
+}
+
 .question-layout > .question {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -43,5 +104,6 @@
 @media screen and (max-width: 600px) {
   .question-layout {
     width: 78%;
+    max-width: 100%;
   }
 }

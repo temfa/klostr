@@ -3,7 +3,7 @@
 }
 
 .link-container > p {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -22,7 +22,7 @@
   background: #fcf9f9;
   border-radius: 12px;
   border: 0px;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
@@ -36,7 +36,7 @@
 }
 
 .link-action h3 {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: italic;
   font-weight: 400;
   font-size: 13px;
@@ -46,7 +46,7 @@
 }
 
 .link-action p {
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   margin: 77px 0px 10px;
   font-style: normal;
   font-weight: 400;

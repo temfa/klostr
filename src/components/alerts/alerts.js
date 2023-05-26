@@ -1,13 +1,19 @@
 import React from "react";
 import "./alerts.css";
 import QuestionLayout from "../../utils/question-layout/questionLayout";
-import FormButton from "../form-button/formButton";
 
-const Alerts = ({ type, img, question, action, backaction }) => {
+const Alerts = ({ type, img, question, action, backaction, level2, level3 }) => {
   return (
-    <QuestionLayout question={question} type={type} action={backaction}>
+    <QuestionLayout
+      question={question}
+      type={type}
+      action={backaction}
+      level2={level2}
+      level3={level3}
+      alert={true}
+      nextAction={question === "The magic has begun! Now we’ll find your dream home" ? action : action}
+      next={question === "The magic has begun! Now we’ll find your dream home" ? "Finish" : "Next"}>
       <img src={img} alt="alert" className="alert-img" />
-      <FormButton text="Next" action={action} />
     </QuestionLayout>
   );
 };

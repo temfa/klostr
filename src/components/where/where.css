@@ -9,7 +9,7 @@
   background: #fcf9f9;
   border-radius: 12px;
   border: 0px;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
@@ -28,7 +28,7 @@
   border: none;
   background: #5a49a7;
   border-radius: 8px;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
