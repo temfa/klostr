@@ -60,19 +60,19 @@
   width: 100%;
 }
 
-.form-groups > .form-select {
+.form-groups .form-select {
   width: 19%;
 }
 
-.form-groups > .tel {
+.form-groups .tel {
   width: 52%;
 }
 
-.form-groups > .sex {
+.form-groups .sex {
   width: 24%;
 }
 
-.form-groups > p,
+.form-groups p,
 .form-group div p {
   font-family: "Inter", sans-serif;
   font-style: italic;
@@ -92,14 +92,14 @@ small {
 
 @media screen and (max-width: 600px) {
   .form-group,
-  .form-groups > div {
+  .form-groups div {
     flex-direction: column;
   }
 
-  .form-groups > .form-select,
+  .form-groups .form-select,
   .form-container,
-  .form-groups > .tel,
-  .form-groups > .sex,
+  .form-groups .tel,
+  .form-groups .sex,
   .form-group input,
   .form-group div {
     width: 100%;
@@ -115,7 +115,7 @@ small {
     margin-bottom: 22px;
   }
 
-  .form-groups > .tel {
+  .form-groups .tel {
     margin: 22px 0px;
   }
 }
