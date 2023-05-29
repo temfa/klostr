@@ -34,10 +34,10 @@ export const Data = [
         slug: "both",
         name: "I need both a home and a flatmate",
       },
-      {
-        slug: "flat",
-        name: "I'm only looking for only a home",
-      },
+      //   {
+      //     slug: "flat",
+      //     name: "I'm only looking for only a home",
+      //   },
     ],
     multiStep: false,
     alert: false,

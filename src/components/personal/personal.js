@@ -183,7 +183,7 @@ const Personal = ({ question, type, count, no, action, backAction, first }) => {
           <FormButton
             action={async () => {
               setLoading(true);
-              if (!validateField()) {
+              if (validateField()) {
                 setLoading(false);
                 toast.error("Check the fields");
               } else {
