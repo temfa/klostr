@@ -5,9 +5,9 @@ import Linkendin from "../../assets/linkdin.svg";
 import Quick from "../../assets/quick-tips.svg";
 import FormButton from "../form-button/formButton";
 
-const Socials = ({ question, no, count, backAction, type, action }) => {
+const Socials = ({ question, no, count, backAction, type, action, first }) => {
   return (
-    <QuestionLayout question={question} no={no} count={count} action={backAction} type={type}>
+    <QuestionLayout question={question} no={no} count={count} action={backAction} type={type} first={first}>
       <div className="social-container">
         <p>
           Why?

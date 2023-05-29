@@ -7,7 +7,7 @@ import Loader from "../loader/loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Link = ({ action, type, question, backAction, no, count, level2 }) => {
+const Link = ({ action, type, question, backAction, no, count, level2, first }) => {
   const [link, setLink] = useState("");
   const [loading, setLoading] = useState(false);
   let token;
@@ -19,7 +19,7 @@ const Link = ({ action, type, question, backAction, no, count, level2 }) => {
     }
   }
   return (
-    <QuestionLayout type={type} question={question} action={backAction} no={no} count={count} level2={level2}>
+    <QuestionLayout type={type} question={question} action={backAction} no={no} count={count} level2={level2} first={first}>
       <ToastContainer />
       <div className="link-container">
         <p>

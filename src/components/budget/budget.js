@@ -7,7 +7,7 @@ import Loader from "../loader/loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Budget = ({ backAction, count, action, no, type, level2 }) => {
+const Budget = ({ backAction, count, action, no, type, level2, first }) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "NGN",
@@ -58,7 +58,7 @@ const Budget = ({ backAction, count, action, no, type, level2 }) => {
     };
   }, []);
   return (
-    <QuestionLayout question="What is your budget?" action={backAction} count={count} no={no} type={type} level2={level2}>
+    <QuestionLayout question="What is your budget?" action={backAction} count={count} no={no} type={type} level2={level2} first={first}>
       <ToastContainer />
       <div className="budget-container">
         <div className="budget-amount">

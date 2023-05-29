@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./personal.css";
 import QuestionLayout from "../../utils/question-layout/questionLayout";
 import FormButton from "../form-button/formButton";
@@ -7,7 +7,15 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Loader from "../loader/loader";
 
-const Personal = ({ question, type, count, no, action, backAction }) => {
+const Personal = ({ question, type, count, no, action, backAction, first }) => {
+  const firstNameRef = useRef();
+  const lastNameRef = useRef();
+  const emailRef = useRef();
+  const phoneRef = useRef();
+  const numberRef = useRef();
+  const sexRef = useRef();
+  const passwordRef = useRef();
+  const workRef = useRef();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,112 +25,143 @@ const Personal = ({ question, type, count, no, action, backAction }) => {
   const [password, setPassword] = useState("");
   const [work, setWork] = useState("");
   const [loading, setLoading] = useState(false);
+  function setErrorFor(input, message) {
+    let formParent = input.parentElement;
+    let small = formParent.querySelector("small");
 
+    small.innerText = message;
+
+    // formParent.className = "form-group error";
+  }
   const validateField = () => {
     let productRegex = /^[0-9]+$/;
     let emailRegex = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
     if (firstName === "") {
-      toast.error("First Name cannot be empty");
+      setErrorFor(firstNameRef.current, "First Name cannot be empty");
     } else if (productRegex.test(firstName)) {
-      toast.error("First name can only be Alphabelts");
+      setErrorFor(firstNameRef.current, "First name can only be Alphabelts");
     }
     if (lastName === "") {
-      toast.error("Last Name cannot be empty");
+      setErrorFor(lastNameRef.current, "Last Name cannot be empty");
     } else if (productRegex.test(lastName)) {
-      toast.error("Last Name can only be Alphabelts");
+      setErrorFor(lastNameRef.current, "Last Name can only be Alphabelts");
     }
     if (sex === "") {
-      toast.error("Sex cannot be empty");
+      setErrorFor(sexRef.current, "Sex cannot be empty");
     } else if (productRegex.test(sex)) {
-      toast.error("Sex can only be Alphabelts");
+      setErrorFor(sexRef.current, "Sex can only be Alphabelts");
     }
     if (email === "") {
-      toast.error("Email cannot be empty");
+      setErrorFor(emailRef.current, "Email cannot be empty");
     } else if (!emailRegex.test(email)) {
-      toast.error("Enter a valid Email");
+      setErrorFor(emailRef.current, "Enter a valid Email");
     }
     if (phone === "") {
-      toast.error("Tel cannot be empty");
+      setErrorFor(phoneRef.current, "Tel cannot be empty");
     }
     if (password === "") {
-      toast.error("Password cannot be empty");
+      setErrorFor(passwordRef.current, "Password cannot be empty");
     }
     if (work === "") {
-      toast.error("Professional Status cannot be empty");
+      setErrorFor(workRef.current, "Professional Status cannot be empty");
     }
     // return true;
   };
+
   return (
-    <QuestionLayout question={question} type={type} count={count} no={no} action={backAction}>
+    <QuestionLayout question={question} type={type} count={count} no={no} action={backAction} first={first}>
       <ToastContainer />
       <div className="form-container">
         <div className="form-group">
-          <input
-            type="text"
-            placeholder="First Name"
-            value={firstName}
-            onChange={(e) => {
-              setFirstName(e.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
-            value={lastName}
-            onChange={(e) => {
-              setLastName(e.target.value);
-            }}
-          />
+          <div>
+            <input
+              type="text"
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => {
+                setFirstName(e.target.value);
+              }}
+              ref={firstNameRef}
+            />
+            <small></small>
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={(e) => {
+                setLastName(e.target.value);
+              }}
+              ref={lastNameRef}
+            />
+            <small></small>
+          </div>
         </div>
         <div className="form-group">
-          <input
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+          <div>
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              ref={emailRef}
+            />
+            <small></small>
+          </div>
+          <div>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              ref={passwordRef}
+            />
+            <small></small>
+          </div>
         </div>
         <div className="form-groups">
           <div>
             <div className="form-select">
               <select
                 name=""
-                id=""
+                ref={phoneRef}
                 onChange={(e) => {
                   setPhone(e.target.value);
                 }}>
                 <option value="+234">+234</option>
                 <option value="+234">+234</option>
               </select>
+              <small></small>
             </div>
-            <input
-              type="text"
-              placeholder="810 508 8175"
-              className="tel"
-              value={number}
-              onChange={(e) => {
-                setNumber(e.target.value);
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Sex"
-              className="sex"
-              value={sex}
-              onChange={(e) => {
-                setSex(e.target.value);
-              }}
-            />
+            <div className="tel">
+              <input
+                type="text"
+                placeholder="810 508 8175"
+                value={number}
+                onChange={(e) => {
+                  setNumber(e.target.value);
+                }}
+                ref={numberRef}
+              />
+              <small></small>
+            </div>
+            <div className="sex">
+              <input
+                type="text"
+                placeholder="Sex"
+                value={sex}
+                onChange={(e) => {
+                  setSex(e.target.value);
+                }}
+                ref={sexRef}
+              />
+              <small></small>
+            </div>
           </div>
           <p>Use your WhatsApp Telephone No, so your perfect match can reach out to you!</p>
         </div>
@@ -134,7 +173,9 @@ const Personal = ({ question, type, count, no, action, backAction }) => {
             onChange={(e) => {
               setWork(e.target.value);
             }}
+            ref={workRef}
           />
+          <small></small>
         </div>
         {loading ? (
           <Loader />
@@ -142,7 +183,8 @@ const Personal = ({ question, type, count, no, action, backAction }) => {
           <FormButton
             action={async () => {
               setLoading(true);
-              if (validateField()) {
+              if (!validateField()) {
+                setLoading(false);
                 toast.error("Check the fields");
               } else {
                 const config = {

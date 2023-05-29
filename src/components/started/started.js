@@ -21,6 +21,7 @@ const Started = () => {
   const [count, setCount] = useState(0);
   const [level2, setlevel2] = useState(false);
   const [level3, setlevel3] = useState(false);
+  const [first, setFirst] = useState(false);
   // const [loading, setLoading] = useState(false);
   let token;
   let tokenData;
@@ -39,7 +40,18 @@ const Started = () => {
   const loadForm = () => {
     switch (Data[count].alert) {
       case true:
-        return <Alerts type={Data[count].multiStep} img={Data[count].img} question={Data[count].questions} action={add} backaction={remove} level2={level2} level3={level3} />;
+        return (
+          <Alerts
+            type={Data[count].multiStep}
+            img={Data[count].img}
+            question={Data[count].questions}
+            action={add}
+            backaction={remove}
+            level2={level2}
+            level3={level3}
+            first={first}
+          />
+        );
       case false:
         switch (Data[count].questions) {
           case "Show us a place you have in mind":
@@ -52,6 +64,7 @@ const Started = () => {
                 count={Data[count].current}
                 no={Data[count].total}
                 level2={level2}
+                first={first}
               />
             );
           case "Where do you want to live?":
@@ -64,14 +77,25 @@ const Started = () => {
                 no={Data[count].total}
                 backAction={remove}
                 level2={level2}
+                first={first}
               />
             );
           case "What is your budget?":
-            return <Budget action={add} type={Data[count].multiStep} count={Data[count].current} no={Data[count].total} backAction={remove} level2={level2} />;
+            return <Budget action={add} type={Data[count].multiStep} count={Data[count].current} no={Data[count].total} backAction={remove} level2={level2} first={first} />;
           case "Personal Information":
-            return <Personal action={add} type={Data[count].multiStep} count={Data[count].current} no={Data[count].total} backAction={remove} />;
+            return <Personal action={add} type={Data[count].multiStep} count={Data[count].current} no={Data[count].total} backAction={remove} first={first} />;
           case "Connect a social account":
-            return <Socials action={add} type={Data[count].multiStep} count={Data[count].current} no={Data[count].total} backAction={remove} question={Data[count].questions} />;
+            return (
+              <Socials
+                action={add}
+                type={Data[count].multiStep}
+                count={Data[count].current}
+                no={Data[count].total}
+                backAction={remove}
+                question={Data[count].questions}
+                first={first}
+              />
+            );
           default:
             return (
               <QuestionLayout
@@ -80,15 +104,21 @@ const Started = () => {
                 count={Data[count].current}
                 no={Data[count].total}
                 action={remove}
+                indicator={Data[count].indicator}
+                first={first}
                 level2={level2}
                 level3={level3}>
                 {Data[count].answer?.map((item, index) => {
                   return (
                     <Answer
-                      answer={item}
+                      answer={item.name}
                       key={index}
                       action={async (e) => {
-                        if (Data[count].questions === "How many bedrooms?") {
+                        if (Data[count].questions === "How do we split the bills?") {
+                          add();
+                        } else if (Data[count].questions === "Can you live with pets?") {
+                          add();
+                        } else {
                           const config = {
                             headers: {
                               "Content-Type": "application/json",
@@ -97,8 +127,8 @@ const Started = () => {
                           };
                           const url = "https://dev.api.klostr.com/user/update-user-preference";
                           const data = {
-                            key: "apartment_type",
-                            value: e.target.outerText === "+ three bedroom" ? "three_plus_bedroom" : e.target.outerText.replace(" ", "_").toLowerCase(),
+                            key: Data[count].slug,
+                            value: Data[count].answer[index].slug,
                           };
                           try {
                             await axios.patch(url, data, config).then((response) => {
@@ -109,8 +139,6 @@ const Started = () => {
                           } catch (error) {
                             toast.error(error.response.data.message);
                           }
-                        } else {
-                          add();
                         }
                       }}
                     />
@@ -122,7 +150,14 @@ const Started = () => {
 
       default:
         return (
-          <QuestionLayout question={Data[count].questions} type={Data[count].multiStep} count={Data[count].current} no={Data[count].total} level2={level2} level3={level3}>
+          <QuestionLayout
+            question={Data[count].questions}
+            type={Data[count].multiStep}
+            count={Data[count].current}
+            no={Data[count].total}
+            level2={level2}
+            level3={level3}
+            first={first}>
             {Data[count].answer?.map((item, index) => {
               return <Answer answer={item} key={index} action={add} />;
             })}
@@ -132,6 +167,9 @@ const Started = () => {
   };
 
   useEffect(() => {
+    if (count === 0) {
+      setFirst(true);
+    }
     if (count >= 5) {
       setlevel2(true);
     } else {

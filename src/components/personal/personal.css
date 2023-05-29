@@ -3,7 +3,7 @@
 }
 
 .form-group,
-.form-groups div {
+.form-groups > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,6 +22,7 @@
   font-size: 18px;
   line-height: 22px;
   color: #818183;
+  width: 100%;
 }
 
 .form-container select {
@@ -46,7 +47,6 @@
   margin-bottom: 60px;
 }
 
-.form-group input,
 .form-group div {
   width: 45%;
 }
@@ -55,23 +55,24 @@
   margin-bottom: 50px;
 }
 
-.form-single input {
+.form-single input,
+.form-group input {
   width: 100%;
 }
 
-.form-groups .form-select {
+.form-groups > .form-select {
   width: 19%;
 }
 
-.form-groups .tel {
+.form-groups > .tel {
   width: 52%;
 }
 
-.form-groups .sex {
+.form-groups > .sex {
   width: 24%;
 }
 
-.form-groups p,
+.form-groups > p,
 .form-group div p {
   font-family: "Inter", sans-serif;
   font-style: italic;
@@ -84,16 +85,21 @@
   color: #5a49a7;
 }
 
+small {
+  color: #e74c3c;
+  visibility: visible;
+}
+
 @media screen and (max-width: 600px) {
   .form-group,
-  .form-groups div {
+  .form-groups > div {
     flex-direction: column;
   }
 
-  .form-groups .form-select,
+  .form-groups > .form-select,
   .form-container,
-  .form-groups .tel,
-  .form-groups .sex,
+  .form-groups > .tel,
+  .form-groups > .sex,
   .form-group input,
   .form-group div {
     width: 100%;
@@ -109,7 +115,7 @@
     margin-bottom: 22px;
   }
 
-  .form-groups .tel {
+  .form-groups > .tel {
     margin: 22px 0px;
   }
 }

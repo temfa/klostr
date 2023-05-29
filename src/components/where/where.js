@@ -7,7 +7,7 @@ import Loader from "../loader/loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Where = ({ count, action, type, question, no, backAction, level2 }) => {
+const Where = ({ count, action, type, question, no, backAction, level2, first }) => {
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(false);
   const inputref = useRef();
@@ -25,7 +25,7 @@ const Where = ({ count, action, type, question, no, backAction, level2 }) => {
     setAddress(place.formatted_address);
   };
   return (
-    <QuestionLayout count={count} type={type} question={question} no={no} action={backAction} level2={level2}>
+    <QuestionLayout count={count} type={type} question={question} no={no} action={backAction} level2={level2} first={first}>
       <ToastContainer />
       <div className="where-container">
         <LoadScript googleMapsApiKey="AIzaSyBJAsJYls1i4VFztfFAIU6RSTDHVoaPtEI" libraries={["places"]}>
