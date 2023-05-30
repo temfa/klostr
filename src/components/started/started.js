@@ -59,9 +59,7 @@ const Started = () => {
           case "Show us a place you have in mind":
             return (
               <Link
-                action={() => {
-                  setCount(count + 2);
-                }}
+                action={add}
                 type={data(type)[count].multiStep}
                 question={data(type)[count].questions}
                 backAction={remove}

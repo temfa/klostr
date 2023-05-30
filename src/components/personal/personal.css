@@ -135,7 +135,7 @@
   width: 35%;
 }
 
-.form-groups > p,
+/* .form-groups > p,
 .form-group div > p {
   font-family: "Inter", sans-serif;
   font-style: italic;
@@ -146,11 +146,29 @@
   margin-top: 2px;
   margin-bottom: 18px;
   color: #5a49a7;
-}
+} */
 
 small {
   color: #e74c3c;
   visibility: visible;
+}
+
+.quick-tip {
+  justify-content: center;
+  width: 346px !important;
+  align-items: center;
+  margin-top: 2px;
+  margin-bottom: 18px;
+}
+
+.quick-tip p {
+  font-family: "Inter", sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  width: 273px;
+  color: #5a49a7;
 }
 
 @media screen and (max-width: 600px) {

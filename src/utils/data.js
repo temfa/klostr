@@ -20,7 +20,7 @@ export default function Data(type) {
     },
     {
       questions: "Well done!",
-      question2: "Now let’s get more details to help you better",
+      question2: "Now let’s get more details to serve you better",
       multiStep: false,
       alert: true,
       img: Pass,

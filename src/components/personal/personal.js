@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Loader from "../loader/loader";
 import Dropdown from "../../assets/select.svg";
+import Quick from "../../assets/quick-tips.svg";
 import OutsideClick from "../outside-click/outsideClick";
 
 const Personal = ({ question, type, count, no, action, backAction, first }) => {
@@ -145,7 +146,7 @@ const Personal = ({ question, type, count, no, action, backAction, first }) => {
               <div
                 className="phone-code-view"
                 onClick={() => {
-                  setView(true);
+                  setView(!view);
                 }}>
                 <img src={display} alt="Flags" />
                 <p>{phone}</p>
@@ -206,7 +207,10 @@ const Personal = ({ question, type, count, no, action, backAction, first }) => {
               <small></small>
             </div>
           </div>
-          <p>Use your WhatsApp Telephone No, so your perfect match can reach out to you!</p>
+          <div className="quick-tip">
+            <img src={Quick} alt="quick" />
+            <p>Use your WhatsApp Telephone No, so your perfect match can reach out to you!</p>
+          </div>
         </div>
         <div className="form-group">
           <div>
