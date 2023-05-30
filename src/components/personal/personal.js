@@ -253,43 +253,43 @@ const Personal = ({ question, type, count, no, action, backAction, first }) => {
           <Loader />
         ) : (
           <FormButton
-            // action={async () => {
-            //   setLoading(true);
-            //   if (validateField()) {
-            //     setLoading(false);
-            //     toast.error("Check the fields");
-            //   } else {
-            //     const config = {
-            //       headers: {
-            //         "Content-Type": "application/json",
-            //       },
-            //     };
-            //     const url = "https://dev.api.klostr.com/auth/signup";
-            //     const data = {
-            //       first_name: firstName,
-            //       last_name: lastName,
-            //       sex: sex.toLowerCase(),
-            //       phone_number: `${phone.replace("+", "")}${number}`,
-            //       social_link: "social",
-            //       profession: work,
-            //       email: email,
-            //       password: password,
-            //     };
-            //     try {
-            //       await axios.post(url, data, config).then((response) => {
-            //         if (response.data.status === 200) {
-            //           localStorage.setItem("token", response.data.body.token.accessToken);
-            //           setLoading(false);
-            //           action();
-            //         }
-            //       });
-            //     } catch (error) {
-            //       setLoading(false);
-            //       toast.error(error.response.data.message);
-            //     }
-            //   }
-            // }}
-            action={action}
+            action={async () => {
+              setLoading(true);
+              if (validateField()) {
+                setLoading(false);
+                toast.error("Check the fields");
+              } else {
+                const config = {
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                };
+                const url = "https://dev.api.klostr.com/auth/signup";
+                const data = {
+                  first_name: firstName,
+                  last_name: lastName,
+                  sex: sex.toLowerCase(),
+                  phone_number: `${phone.replace("+", "")}${number}`,
+                  social_link: "social",
+                  profession: work,
+                  email: email,
+                  password: password,
+                };
+                try {
+                  await axios.post(url, data, config).then((response) => {
+                    if (response.data.status === 200) {
+                      localStorage.setItem("token", response.data.body.token.accessToken);
+                      setLoading(false);
+                      action();
+                    }
+                  });
+                } catch (error) {
+                  setLoading(false);
+                  toast.error(error.response.data.message);
+                }
+              }
+            }}
+            // action={action}
             text="Next"
           />
         )}
