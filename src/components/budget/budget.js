@@ -15,6 +15,7 @@ const Budget = ({ backAction, count, action, no, type, level2, first }) => {
   });
   const [currentPrice, setCurrentPrice] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const thumbRef = useRef();
   const sliderRef = useRef();
   let token;
@@ -63,7 +64,7 @@ const Budget = ({ backAction, count, action, no, type, level2, first }) => {
       <div className="budget-container">
         <div className="budget-amount">
           <div className="budget-start">
-            <p>{formatter.format(currentPrice)}</p>
+            <p>{formatter.format(0)}</p>
           </div>
           <div className="budget-end">
             <p>{formatter.format(25000000)}</p>
@@ -73,15 +74,22 @@ const Budget = ({ backAction, count, action, no, type, level2, first }) => {
           <div className="thumb" ref={thumbRef}></div>
         </div>
       </div>
-      <input
-        type="text"
-        value={currentPrice}
-        onChange={(e) => {
-          setCurrentPrice(e.target.value);
-        }}
-        className="budget-input"
-      />
-
+      <p className="current-budget">Current Budget: {formatter.format(currentPrice)}</p>
+      <div className="budget-input">
+        <input
+          type="text"
+          value={currentPrice}
+          onChange={(e) => {
+            if (currentPrice > 25000000) {
+              setError(true);
+            } else {
+              setError(false);
+              setCurrentPrice(e.target.value);
+            }
+          }}
+        />
+        {error ? <small>You cannot exceed #25,000,000 as your budget</small> : null}
+      </div>
       {loading ? (
         <Loader />
       ) : (

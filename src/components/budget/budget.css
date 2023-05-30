@@ -40,7 +40,22 @@
   color: #5a49a7;
 }
 
+.current-budget {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #5a49a7;
+  margin-bottom: 8px;
+}
+
 .budget-input {
+  width: 40%;
+  margin-bottom: 40px;
+}
+
+.budget-input input {
   background: #fcf9f9;
   border-radius: 12px;
   padding: 22px 30px;
@@ -52,6 +67,5 @@
   font-size: 18px;
   line-height: 22px;
   color: #818183;
-  width: 40%;
-  margin-bottom: 40px;
+  width: 100%;
 }
