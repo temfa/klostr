@@ -1,12 +1,12 @@
 .form-container {
-  width: 100%;
+  width: 82%;
+  margin: 0px auto;
 }
 
 .form-group,
 .form-groups > div {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
 }
 
@@ -61,19 +61,82 @@
 }
 
 .form-groups .form-select {
-  width: 19%;
+  width: 25%;
+  position: relative;
 }
 
 .form-groups .tel {
-  width: 52%;
+  width: 48%;
 }
 
 .form-groups .sex {
-  width: 24%;
+  width: 22%;
 }
 
-.form-groups p,
-.form-group div p {
+.phone-code-view {
+  width: 100%;
+  position: relative !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 10px 22px 30px;
+  cursor: pointer;
+  border: none;
+  background-color: #fcf9f9;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.phone-code-view img {
+  width: 20%;
+}
+
+.phone-code-view p,
+.phone-code-option p {
+  margin: 0px !important;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
+  color: #818183;
+}
+
+.phone-code-option {
+  position: absolute;
+  background-color: white;
+  height: 30vh;
+  overflow-y: scroll;
+  /* top: 0px;
+  left: 0px; */
+}
+
+.phone-code-option::-webkit-scrollbar {
+  display: none;
+}
+
+.phone-code-option div {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 22px 10px 22px 30px;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.phone-code-option div:hover {
+  background-color: #fcf9f9;
+}
+
+.phone-code-option img {
+  width: 35%;
+}
+
+.form-groups > p,
+.form-group div > p {
   font-family: "Inter", sans-serif;
   font-style: italic;
   font-weight: 400;

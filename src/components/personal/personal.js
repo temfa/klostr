@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./personal.css";
 import QuestionLayout from "../../utils/question-layout/questionLayout";
 import FormButton from "../form-button/formButton";
@@ -6,22 +6,28 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Loader from "../loader/loader";
+import Dropdown from "../../assets/select.svg";
+import OutsideClick from "../outside-click/outsideClick";
 
 const Personal = ({ question, type, count, no, action, backAction, first }) => {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const emailRef = useRef();
-  const phoneRef = useRef();
   const numberRef = useRef();
   const sexRef = useRef();
+  const sexualRef = useRef();
   const passwordRef = useRef();
   const workRef = useRef();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [countries, setCountries] = useState([]);
+  const [display, setDisplay] = useState("https://flagcdn.com/w320/ng.png");
+  const [view, setView] = useState(false);
+  const [phone, setPhone] = useState("+234");
   const [number, setNumber] = useState("");
   const [sex, setSex] = useState("");
+  const [sexual, setSexual] = useState("");
   const [password, setPassword] = useState("");
   const [work, setWork] = useState("");
   const [loading, setLoading] = useState(false);
@@ -48,28 +54,37 @@ const Personal = ({ question, type, count, no, action, backAction, first }) => {
     }
     if (sex === "") {
       setErrorFor(sexRef.current, "Sex cannot be empty");
-    } else if (productRegex.test(sex)) {
-      setErrorFor(sexRef.current, "Sex can only be Alphabelts");
     }
     if (email === "") {
       setErrorFor(emailRef.current, "Email cannot be empty");
     } else if (!emailRegex.test(email)) {
       setErrorFor(emailRef.current, "Enter a valid Email");
     }
-    if (phone === "") {
-      setErrorFor(phoneRef.current, "Tel cannot be empty");
-    }
+    // if (phone === "") {
+    //   setErrorFor(phoneRef.current, "Tel cannot be empty");
+    // }
     if (password === "") {
       setErrorFor(passwordRef.current, "Password cannot be empty");
+    }
+    if (number === "") {
+      setErrorFor(numberRef.current, "Number cannot be empty");
     }
     if (work === "") {
       setErrorFor(workRef.current, "Professional Status cannot be empty");
     }
+    if (sexual === "") {
+      setErrorFor(sexualRef.current, "Sexual Orientation cannot be empty");
+    }
     // return true;
   };
+  useEffect(() => {
+    axios.get("https://restcountries.com/v3.1/all").then((response) => {
+      setCountries(response.data);
+    });
+  }, []);
 
   return (
-    <QuestionLayout question={question} type={type} count={count} no={no} action={backAction} first={first}>
+    <QuestionLayout question={"Signup to get started with Klostr"} type={type} count={count} no={no} action={backAction} first={first}>
       <ToastContainer />
       <div className="form-container">
         <div className="form-group">
@@ -127,16 +142,42 @@ const Personal = ({ question, type, count, no, action, backAction, first }) => {
         <div className="form-groups">
           <div>
             <div className="form-select">
-              <select
-                name=""
-                ref={phoneRef}
-                onChange={(e) => {
-                  setPhone(e.target.value);
+              <div
+                className="phone-code-view"
+                onClick={() => {
+                  setView(true);
                 }}>
-                <option value="+234">+234</option>
-                <option value="+234">+234</option>
-              </select>
-              <small></small>
+                <img src={display} alt="Flags" />
+                <p>{phone}</p>
+                <img src={Dropdown} alt="dropdown" />
+              </div>
+              <OutsideClick
+                onClickOutside={() => {
+                  setView(false);
+                }}>
+                {view ? (
+                  <div className="phone-code-option">
+                    {countries?.map((item, index) => {
+                      if (item.idd.suffixes === undefined) return null;
+                      else {
+                        return (
+                          <div
+                            value={`${item.idd.root}${item.idd?.suffixes[0]}`}
+                            key={index}
+                            onClick={() => {
+                              setDisplay(item.flags.png === undefined ? item.flags.svg : item.flags.png);
+                              setPhone(`${item.idd.root}${item.idd?.suffixes[0]}`);
+                              setView(false);
+                            }}>
+                            <img src={item.flags.png === undefined ? item.flags.svg : item.flags.png} alt="" />
+                            <p>{`${item.idd.root}${item.idd?.suffixes[0]}`}</p>
+                          </div>
+                        );
+                      }
+                    })}
+                  </div>
+                ) : null}
+              </OutsideClick>
             </div>
             <div className="tel">
               <input
@@ -151,31 +192,58 @@ const Personal = ({ question, type, count, no, action, backAction, first }) => {
               <small></small>
             </div>
             <div className="sex">
-              <input
-                type="text"
-                placeholder="Sex"
-                value={sex}
+              <select
+                name=""
+                id=""
                 onChange={(e) => {
                   setSex(e.target.value);
                 }}
-                ref={sexRef}
-              />
+                ref={sexRef}>
+                <option value="">Sex</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
               <small></small>
             </div>
           </div>
           <p>Use your WhatsApp Telephone No, so your perfect match can reach out to you!</p>
         </div>
-        <div className="form-single">
-          <input
-            type="text"
-            placeholder="Profession"
-            value={work}
-            onChange={(e) => {
-              setWork(e.target.value);
-            }}
-            ref={workRef}
-          />
-          <small></small>
+        <div className="form-group">
+          <div>
+            <select
+              name=""
+              id=""
+              ref={sexualRef}
+              onChange={(e) => {
+                setSexual(e.target.value);
+              }}>
+              <option value="">Sexual Orientation</option>
+              <option value="Heterosexual">Heterosexual</option>
+              <option value="Gay">Gay</option>
+              <option value="Lesbian">Lesbian</option>
+              <option value="Bisexual">Bisexual</option>
+              <option value="Asexual">Asexual</option>
+              <option value="Queer">Queer</option>
+              <option value="Demisexual">Demisexual</option>
+              <option value="Pansexual">Pansexual</option>
+            </select>
+            <small></small>
+          </div>
+          <div>
+            <select
+              name=""
+              id=""
+              onChange={(e) => {
+                setWork(e.target.value);
+              }}
+              ref={workRef}>
+              <option value="">Professional Status</option>
+              <option value="Worker">Worker</option>
+              <option value="Employee">Employee</option>
+              <option value="Self-employed">Self-employed</option>
+            </select>
+            <small></small>
+          </div>
         </div>
         {loading ? (
           <Loader />

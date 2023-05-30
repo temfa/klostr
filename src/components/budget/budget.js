@@ -63,7 +63,7 @@ const Budget = ({ backAction, count, action, no, type, level2, first }) => {
       <div className="budget-container">
         <div className="budget-amount">
           <div className="budget-start">
-            <p>{formatter.format(0)}</p>
+            <p>{formatter.format(currentPrice)}</p>
           </div>
           <div className="budget-end">
             <p>{formatter.format(25000000)}</p>
@@ -73,7 +73,14 @@ const Budget = ({ backAction, count, action, no, type, level2, first }) => {
           <div className="thumb" ref={thumbRef}></div>
         </div>
       </div>
-      <p>Price: {formatter.format(currentPrice)} </p>
+      <input
+        type="text"
+        value={currentPrice}
+        onChange={(e) => {
+          setCurrentPrice(e.target.value);
+        }}
+        className="budget-input"
+      />
 
       {loading ? (
         <Loader />

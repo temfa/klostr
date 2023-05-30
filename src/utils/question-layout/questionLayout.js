@@ -1,7 +1,7 @@
 import React from "react";
 import "./questionLayout.css";
 
-const QuestionLayout = ({ children, count, question, no, action, type, level2, level3, nextAction, alert, next, indicator, first }) => {
+const QuestionLayout = ({ children, count, question, no, action, type, level2, level3, nextAction, alert, next, indicator, first, question2 }) => {
   return (
     <div className="question-layout">
       <div className="indicator">
@@ -40,7 +40,18 @@ const QuestionLayout = ({ children, count, question, no, action, type, level2, l
           </p>
         )}
       </div>
-      <h2 className="question">{question}</h2>
+      {alert ? (
+        question2 ? (
+          <>
+            <h2 className="alerts">{question}</h2>
+            <h2 className="alerts">{question2}</h2>
+          </>
+        ) : (
+          <h2 className="alerts">{question}</h2>
+        )
+      ) : (
+        <h2 className="question">{question}</h2>
+      )}
       {children}
     </div>
   );
