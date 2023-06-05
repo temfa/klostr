@@ -244,7 +244,7 @@ const Personal = ({ question, type, count, no, action, backAction, first }) => {
               <option value="">Professional Status</option>
               <option value="Worker">Worker</option>
               <option value="Employee">Employee</option>
-              <option value="Self-employed">Self-employe</option>
+              <option value="Self-employed">Self-employed</option>
             </select>
             <small></small>
           </div>
